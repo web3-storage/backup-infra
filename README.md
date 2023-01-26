@@ -1,2 +1,3 @@
-# backup-infra
-AWS Infrastructure managed by Terraform for running Backup Tool
+# Backup Infra
+
+This project contains code to provision Cloud infrastructure for [Backup tool](https://github.com/web3-storage/backup).
