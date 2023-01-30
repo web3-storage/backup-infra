@@ -62,3 +62,9 @@ variable "data_urls_map" {
   type        = set(string)
   description = "Map with URLs of source CID lists. Each of these will create a new task definition and service"
 }
+
+variable "debug" {
+  type        = bool
+  description = "Enable debug mode"
+  default     = false
+}
