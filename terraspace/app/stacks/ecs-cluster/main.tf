@@ -22,16 +22,16 @@ resource "aws_ecs_task_definition" "backup" {
   family                   = var.ecs_task_definition_family
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = 512
-  memory                   = 1024
+  cpu                      = 2048
+  memory                   = 4096
   task_role_arn            = aws_iam_role.ecs_task_role.arn
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   container_definitions = jsonencode([
     {
       name        = "backup"
       image       = "${var.repository_url}:${var.backup_image_version}"
-      cpu         = 512
-      memory      = 1024
+      cpu         = 2048
+      memory      = 4096
       networkMode = "awsvpc",
       logConfiguration = {
         logDriver = "awslogs"
@@ -41,13 +41,13 @@ resource "aws_ecs_task_definition" "backup" {
           "awslogs-stream-prefix" = "backup"
         }
       }
-      environment = [
+      environment = flatten([
         { "name" : "DATA_URL", "value" : each.value },
         { "name" : "S3_REGION", "value" : local.region },
         { "name" : "S3_BUCKET_NAME", "value" : var.target_bucket_name },
         { "name" : "CONCURRENCY", "value" : var.concurrency },
         { "name" : "BATCH_SIZE", "value" : var.batch_size },
-      ]
+      var.debug ? [{ "name" : "DEBUG", "value" : "*" }] : []])
     },
   ])
   ephemeral_storage {
