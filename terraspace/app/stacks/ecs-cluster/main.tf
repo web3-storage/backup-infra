@@ -11,6 +11,10 @@ terraform {
 
 resource "aws_cloudwatch_log_group" "backup" {
   name = var.ecs_cluster_name
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_ecs_cluster" "backup" {
