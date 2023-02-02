@@ -15,7 +15,7 @@ resource "aws_ecs_cluster" "backup" {
 
 resource "aws_ecs_task_definition" "backup" {
   for_each                 = var.data_urls_map
-  family                   = var.ecs_task_definition_family
+  family                   = replace(regex(".*/([^/]+)$", each.value)[0], "/.json/", "")
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 2048
@@ -53,7 +53,7 @@ resource "aws_ecs_task_definition" "backup" {
 
 resource "aws_ecs_service" "backup" {
   for_each        = aws_ecs_task_definition.backup
-  name            = var.ecs_service_name
+  name            = each.value.family
   cluster         = aws_ecs_cluster.backup.id
   task_definition = each.value.arn
   desired_count   = 1
