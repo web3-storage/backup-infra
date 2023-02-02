@@ -68,3 +68,8 @@ variable "debug" {
   description = "Enable debug mode"
   default     = false
 }
+
+variable "log_group_name" {
+  type        = string
+  description = "Name of the log group"
+}

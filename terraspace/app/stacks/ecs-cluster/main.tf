@@ -9,14 +9,6 @@ terraform {
   required_version = ">= 1.0.0"
 }
 
-resource "aws_cloudwatch_log_group" "backup" {
-  name = var.ecs_cluster_name
-
-  lifecycle {
-    prevent_destroy = true
-  }
-}
-
 resource "aws_ecs_cluster" "backup" {
   name = var.ecs_cluster_name
 }
@@ -40,7 +32,7 @@ resource "aws_ecs_task_definition" "backup" {
       logConfiguration = {
         logDriver = "awslogs"
         options = {
-          "awslogs-group"         = aws_cloudwatch_log_group.backup.name
+          "awslogs-group"         = var.log_group_name
           "awslogs-region"        = local.region
           "awslogs-stream-prefix" = "backup"
         }
