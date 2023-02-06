@@ -3,16 +3,6 @@ variable "ecs_cluster_name" {
   description = "Name for ECS cluster, which will be used to run backup container"
 }
 
-variable "ecs_task_definition_family" {
-  type        = string
-  description = "Family for ECS task definition, which will be used to run backup container"
-}
-
-variable "ecs_service_name" {
-  type        = string
-  description = "Name for ECS service, which will be used to run backup container"
-}
-
 variable "repository_url" {
   type        = string
   description = "URL of the repository where the backup image is stored"
@@ -67,4 +57,9 @@ variable "debug" {
   type        = bool
   description = "Enable debug mode"
   default     = false
+}
+
+variable "log_group_name" {
+  type        = string
+  description = "Name of the log group"
 }
