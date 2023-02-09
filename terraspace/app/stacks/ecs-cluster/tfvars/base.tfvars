@@ -44,6 +44,10 @@ data_urls_map = [
   "https://bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm.ipfs.w3s.link/ipfs/bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm/nft-27.json",
   "https://bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm.ipfs.w3s.link/ipfs/bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm/nft-28.json",
   "https://bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm.ipfs.w3s.link/ipfs/bafybeiha7xoedojqjz6ghxdtbf7yx2eklwo7db36772u3odrjusqck3ljm/nft-29.json"
-
+  "https://bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii.ipfs.w3s.link/ipfs/bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii/web3-0.json"
+  "https://bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii.ipfs.w3s.link/ipfs/bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii/web3-1.json"
+  "https://bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii.ipfs.w3s.link/ipfs/bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii/web3-2.json"
+  "https://bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii.ipfs.w3s.link/ipfs/bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii/web3-3.json"
+  "https://bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii.ipfs.w3s.link/ipfs/bafybeidc4ij3jlwlvfxtwcqmfjqafvhokmj3ecqjq7k2derv2w355porii/web3-4.json"
 ]
 debug = true
