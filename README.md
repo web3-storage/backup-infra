@@ -7,6 +7,16 @@ This project contains code to provision Cloud infrastructure for [Backup tool](h
 - [Configure AWS Access](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
 - Install [Terraspace](https://terraspace.cloud/docs/install/) and [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
+## Stacks
+
+- **artifactory**: ECR repository for docker image
+- **ecs-cluster**: 
+    - Cluster (`main.tf`)
+    - One Task Definition, and one service, for each source data file URL (`main.tf`)
+    - Networking (`network.tf`)
+    - Access permissionning (`auth.tf`)
+- **logs**: Log Group. Increase `retention_in_days` if you want to keep logs for a longer period of time. `prevent_destroy=true` makes sure this log group can't be accidentaly deleted before retention period. 
+
 ## Deploy
 
 ``` sh
@@ -38,15 +48,6 @@ AWS_REGION=us-west-2 TS_ENV=prod terraspace down ecs-cluster
 
 CloudWatch logs are preserved for further analysis
 
-## Stacks
-
-- **artifactory**: ECR repository for docker image
-- **ecs-cluster**: 
-    - Cluster (`main.tf`)
-    - One Task Definition, and one service, for each source data file URL (`main.tf`)
-    - Networking (`network.tf`)
-    - Access permissionning (`auth.tf`)
-- **logs**: Log Group. Increase `retention_in_days` if you want to keep logs for a longer period of time. `prevent_destroy=true` makes sure this log group can't be accidentaly deleted before retention period. 
 
 ## Workflows
 
