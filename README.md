@@ -15,7 +15,7 @@ This project contains code to provision Cloud infrastructure for [Backup tool](h
     - One Task Definition, and one service, for each source data file URL (`main.tf`)
     - Networking (`network.tf`)
     - Access permissionning (`auth.tf`)
-- **logs**: Log Group. Increase `retention_in_days` if you want to keep logs for a longer period of time. `prevent_destroy=true` makes sure this log group can't be accidentaly deleted before retention period. 
+- **logs**: Log Group. Increase `retention_in_days` if you want to keep logs for a longer period of time. `prevent_destroy=true` makes sure this log group can't be accidentaly deleted before retention period
 
 ## Deploy
 
@@ -24,7 +24,7 @@ AWS_REGION=us-west-2 TS_ENV=prod terraspace up artifactory
 AWS_REGION=us-west-2 TS_ENV=prod terraspace up log
 ```
 
-Make a first **image push to registry**. Also, remember to feed source CIDs bucket list (See next topic). `terraspace up ecs-cluster` won't work before doing so.
+Make a first **image push to registry**. Also, remember to feed source CIDs bucket list (See next topic). `terraspace up ecs-cluster` won't work before doing so
 
 Update `backup_image_version` (`terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`) with the image tag
 
