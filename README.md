@@ -14,7 +14,7 @@ AWS_REGION=us-west-2 TS_ENV=prod terraspace up artifactory
 AWS_REGION=us-west-2 TS_ENV=prod terraspace up log
 ```
 
-Make a first **image push to registry**. Also, remember to feed source CIDs bucket list (See next topic). Don't up `ecs-cluster` before doing so.
+Make a first **image push to registry**. Also, remember to feed source CIDs bucket list (See next topic). `ecs-cluster` up won't work before doing so.
 
 Update `backup_image_version` (`terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`) with the image tag
 
