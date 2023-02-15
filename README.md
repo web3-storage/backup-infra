@@ -34,7 +34,7 @@ AWS_REGION=us-west-2 TS_ENV=prod terraspace up ecs-cluster
 
 ## Add/Remove source data files URLs
 
-Update `data_urls_map` (`terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`) by adding a new file, or removing an existing from set. Then, run:
+Update `data_urls_map` (`terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`) by adding a new file, or removing an existing, to/from set. Then, run:
 
 ``` sh
 AWS_REGION=us-west-2 TS_ENV=prod terraspace up ecs-cluster
