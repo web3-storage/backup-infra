@@ -26,7 +26,9 @@ AWS_REGION=us-west-2 TS_ENV=prod terraspace up log
 
 Make a first **image push to registry**. Also, remember to feed source CIDs bucket list (See next topic). `terraspace up ecs-cluster` won't work before doing so
 
-Update `backup_image_version` (`terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`) with the image tag
+Merge a PR to main in https://github.com/web3-storage/backup and an updated docker image is built and pushed to a private ECR repository with the tag format `${iso-date}-${short-commit-sha}`. 
+
+Grab that new tag name from the workflow run (or check the ECR listing in aws console) and update `backup_image_version` in `terraspace/app/stacks/ecs-cluster/tfvars/base.tfvars`, then run `terraspace up ecs-cluster`
 
 ``` sh
 AWS_REGION=us-west-2 TS_ENV=prod terraspace up ecs-cluster
