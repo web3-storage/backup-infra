@@ -37,6 +37,16 @@ resource "aws_ecs_task_definition" "backup" {
           "awslogs-stream-prefix" = "backup"
         }
       }
+      enableExecuteCommand = true
+      portMappings = [
+        { containerPort = 9999, hostPort = 9999, protocol = "tcp" },
+      ],
+      # healthCheck = {
+      #   command = ["CMD-SHELL", "curl -f http://localhost:9999 || exit 1"]
+      #   interval = 60
+      #   timeout = 5
+      #   retries = 3
+      # }
       environment = flatten([
         { "name" : "DATA_URL", "value" : each.value },
         { "name" : "S3_REGION", "value" : local.region },
