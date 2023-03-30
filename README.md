@@ -54,3 +54,28 @@ CloudWatch logs are preserved for further analysis
 ## Workflows
 
 Currently, there isn't workflows configured for this project. Commands need to be executed from developer machine
+
+## Troubleshooting
+
+### Error acquiring the state lock
+
+Don't `ctrl+c` a terraspace command. You'll have claimed the lock, and it doesn't gracefully handle a kill signal, and now you've snapped the key off line lock and subsequent commands will fail with a:
+
+```
+AWS_REGION=us-west-2 TS_ENV=prod terraspace all plan
+...
+terraspace plan artifactory:  │ Error: Error acquiring the state lock
+terraspace plan log:  │ Error: Error acquiring the state lock
+```
+
+To fix it, go to the dynamo db explorer, find the ID of the stack that are failing 
+
+![screenshot showing lock id in dynamo db](https://bafybeigx5w6kctovp6n4jemzgdht7iwsbdqceunz7qkwmfne6rt5nk4kim.ipfs.w3s.link/Screenshot%202023-03-30%20at%2014.16.10.png)
+
+
+and run `terraspace force_unlock <stack> <id>` to free the lock. You may have to do this for multple stack'n'lock combos.
+
+```
+# e.g.
+AWS_REGION=us-west-2 TS_ENV=prod terraspace force_unlock artifactory 689fa081-b637...
+```
