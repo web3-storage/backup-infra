@@ -1,4 +1,4 @@
-backup_image_version            = "2023-03-31-7c1b52dd"
+backup_image_version            = "2023-04-19-0a3d11ad"
 target_bucket_name              = "dotstorage-prod-1"
 target_bucket_policy_write_name = "<%= expansion(':ENV') %>-dotstorage-prod-1-write"
 ecs_cluster_name                = "<%= expansion(':ENV') %>-backup-ipfs-cluster"

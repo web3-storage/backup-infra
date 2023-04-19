@@ -37,6 +37,9 @@ resource "aws_ecs_task_definition" "backup" {
           "awslogs-stream-prefix" = "backup"
         }
       }
+      linux_parameters = {
+        initProcessEnabled = true
+      }
       enableExecuteCommand = true
       portMappings = [
         { containerPort = 9999, hostPort = 9999, protocol = "tcp" },
