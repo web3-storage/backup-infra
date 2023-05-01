@@ -21,7 +21,7 @@ variable "target_bucket_name" {
 variable "concurrency" {
   type        = string
   description = "Number of concurrent CIDs to be processed"
-  default     = "10"
+  default     = "20"
 }
 
 variable "batch_size" {
